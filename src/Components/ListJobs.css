@@ -1,0 +1,29 @@
+.List{
+    
+    display: grid;
+    grid-template-columns: repeat(3 , 350px);
+    /* height: 500px; */
+    gap : 70px;
+    place-items: center;
+    list-style: none;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 10;
+}
+.ListContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:  10;
+    
+}
+@media screen and (max-width: 1200px) {
+    .List {
+        grid-template-columns: repeat(2 , 400px);
+    }
+  }
+  @media screen and (max-width: 820px) {
+    .List {
+        grid-template-columns: repeat(1 , 400px);
+    }
+  }

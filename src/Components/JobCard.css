@@ -1,0 +1,73 @@
+.listItemContainer{
+    width: 300px;
+   
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(173, 169, 169);
+    cursor: pointer;
+    transition: transform .2s;
+    padding: 10px;
+    
+   min-height: 400px;
+}
+.listItemContainer:hover{
+    transform: scale(1.05)
+}
+
+.logoContainer{
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.basicInfo{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.logo{
+    height: 50px;
+    width: 50px;
+    border-radius: 200px;
+}
+.salary{
+    margin: 10px;
+}
+.experience{
+    margin: 10px;
+}
+.extraMargin{
+    margin-bottom: 100px;
+}
+
+.toggleButton{
+    background-color: transparent;
+    border: 0;
+    color: blue;
+    cursor: pointer;
+}
+.jobDetails{
+    display: flex;
+    
+    align-items: center;
+    flex-direction: column;
+}
+
+.apply{
+    
+    width: 100%;
+    text-align: center;
+    background-color: rgb(38, 220, 144);
+    border: 1px solid white;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+.apply a{
+    text-decoration: none !important
+}
+.apply:hover{
+    opacity: 75%;
+}
