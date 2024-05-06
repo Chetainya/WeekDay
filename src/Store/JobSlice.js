@@ -24,6 +24,7 @@ const jobSlice = createSlice({
         applyFilter(state , payload){
             
          state.Jobs = payload.payload
+         console.log(state.Jobs)
         },
         limit(state , payload){
             state.limit = payload.payload

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./JobCard.css";
-// import Modal from "./Modal/Modal";
+import Modal from "./Modal/Modal";
 
 const maxChars = 300;
 function JobCard({
@@ -50,7 +50,7 @@ function JobCard({
   return (
     <>
       
-      {/* {modalIsOpen && <Modal onClose={closeModal} {...ModalProps} />} */}
+      {modalIsOpen && <Modal onClose={closeModal} {...ModalProps} />}
       <li className={`listItemContainer`}>
         
         <div className="logoContainer">
