@@ -1,0 +1,10 @@
+.NavBarContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 5px rgb(210, 206, 206);
+    /* background-color: antiquewhite; */
+    border-radius: 10px;
+    margin-top: 2px;
+}
