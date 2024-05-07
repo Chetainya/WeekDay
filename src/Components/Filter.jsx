@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { jobSliceActions } from "../Store/JobSlice";
 
 
-// New data fetched after applying filters will be raw and no filters will be applied on such data
-//Reset filters should be applied to get back the raw data
+
 
 
 function Filter() {
