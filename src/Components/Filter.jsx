@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import "./Filter.css";
 import { useDispatch, useSelector } from "react-redux";
 import { jobSliceActions } from "../Store/JobSlice";
+
+
+// New data fetched after applying filters will be raw and no filters will be applied on such data
+//Reset filters should be applied to get back the raw data
+
+
 function Filter() {
   const [filter, setFilter] = useState({
     minExp: "",
@@ -12,6 +18,7 @@ function Filter() {
     "remote/onsite": "",
   });
   let jobs = useSelector((state) => state.jobs.Jobs);
+  let filters = useSelector(state => state.jobs.appliedFilters)
   // let offset = useSelector(state => state.limit)
   let dispatch = useDispatch();
 
@@ -38,7 +45,8 @@ function Filter() {
 
   function changeHandeler(e) {
     
-
+    dispatch(jobSliceActions.filtersApplied({filterType : e.target.id , value : e.target.value}))
+    
     if (e.target.id === "minExp" || e.target.id === "minJdSalary") {
       setFilter((currFilter) => {
         return {
@@ -54,6 +62,7 @@ function Filter() {
     }
 
     if (e.target.id === "companyName" || e.target.id === "location") {
+        console.log(filters);
       setFilter((currFilter) => {
         return {
           ...currFilter,
@@ -62,6 +71,7 @@ function Filter() {
       });
       if (e.target.value === "") {
         dispatch(jobSliceActions.clearJobs());
+        dispatch(jobSliceActions.clearFilters());
         getData();
         return;
       }
@@ -69,7 +79,7 @@ function Filter() {
       let filteredJobs = jobs.filter((job) => {
         const userSelected = e.target.value.toLowerCase();
         const apiValue = job[e.target.id].toLowerCase();
-
+        
         return apiValue.includes(userSelected);
       });
       dispatch(jobSliceActions.applyFilter(filteredJobs));
@@ -114,6 +124,7 @@ function Filter() {
       jobRole: "",
       "remote/onsite": "",
     });
+    dispatch(jobSliceActions.clearFilters());
   }
 
   return (

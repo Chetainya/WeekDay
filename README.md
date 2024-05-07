@@ -18,7 +18,7 @@ A step-by-step series of examples that tell you how to get a development environ
 1. Clone the repository:
 
    
-   git clone https://github.com/username/repository.git
+   git clone https://github.com/Chetainya/WeekDay.git
 
 2. Navigate to the project directory:
 
@@ -31,5 +31,6 @@ A step-by-step series of examples that tell you how to get a development environ
 4. Start the development server:
 
     npm run dev
+
 
 
