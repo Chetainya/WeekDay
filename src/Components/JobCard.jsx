@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./JobCard.css";
 import Modal from "./Modal/Modal";
+import TimeImage from "../assets/hourglass-with-sand-middle-word-sand-it_123827-23414.png";
 
 const maxChars = 300;
 function JobCard({
@@ -49,18 +50,24 @@ function JobCard({
 
   return (
     <>
-      
       {modalIsOpen && <Modal onClose={closeModal} {...ModalProps} />}
       <li className={`listItemContainer`}>
-        
+        <div className="postingDetails">
+            
+          <img className="TimeImage" src={TimeImage} alt="Time" />
+          <p >Posted 20 days ago</p>
+        </div>
+
         <div className="logoContainer">
           <div>
             <img className="logo" src={logoUrl} alt="logo" />
           </div>
           <div className="basicInfo">
-            <h4>{Company}</h4>
-            <h4>{jobRole}</h4>
-            <h4>{location}</h4>
+            <h4 className="companyText">{Company}</h4>
+            <h4>{jobRole.charAt(0).toUpperCase() + jobRole.slice(1)}</h4>
+            <h4 className="location">
+              {location.charAt(0).toUpperCase() + location.slice(1)}
+            </h4>
           </div>
         </div>
         <p className="salary">
@@ -69,25 +76,36 @@ function JobCard({
         <h3>About Role</h3>
         {/* <p>{jobDetailsFromCompany}</p> */}
         <div className="jobDetails">
-        <p>{jobDetailsFromCompany.slice(0, maxChars)}</p>
-        {jobDetailsFromCompany.length > maxChars && (
-          <button onClick={toggleExpand} className="toggleButton">Show more</button>
-        )}
+          <p>{jobDetailsFromCompany.slice(0, maxChars)}</p>
+
+          <div className="fade-effect"></div>
+
+          {jobDetailsFromCompany.length > maxChars && (
+            <button onClick={toggleExpand} className="toggleButton">
+              Show more
+            </button>
+          )}
         </div>
-        {minExp === null ? <div className="experience"><h4>No Minumum Experience</h4></div> : null}
+
+        {minExp === null ? (
+          <div className="experience">
+            <h4>No Minumum Experience</h4>
+            <p style={{ visibility: "hidden" }}>0</p>
+          </div>
+        ) : null}
         {minExp && (
           <div className="experience">
             <h3>Minumum Experience</h3>
             <p>{minExp} years</p>
           </div>
         )}
-        
-        
-        <div  className="apply">
-          <a href={jdLink} target="_blank">Easy Apply</a>
+
+        <div className="apply">
+          <a href={jdLink} target="_blank">
+            Easy Apply
+          </a>
         </div>
       </li>
-     
     </>
   );
 }
