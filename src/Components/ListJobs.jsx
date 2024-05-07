@@ -4,6 +4,7 @@ import { jobSliceActions } from "../Store/JobSlice";
 import JobCard from "./JobCard";
 import "./ListJobs.css";
 import Store from "../Store/Store";
+import loader from '../assets/1488.gif'
 
 const limit = 10;
 let offset = 0;
@@ -101,7 +102,7 @@ function ListJobs() {
     offset = offset + limit;
 
     let latestData = applyFilters(data.jdList);
-    console.log(latestData);
+    
     dispatch(jobSliceActions.setJobs(latestData));
 
     // dispatch(jobSliceActions.limit(offset));
@@ -156,7 +157,9 @@ function ListJobs() {
           ))}
         </ul>
       </div>
-      {loading && <p>Loading</p>}
+      <div className="loader">
+      {loading && <img src={loader}  alt="loader" />}
+      </div>
     </>
   );
 }
