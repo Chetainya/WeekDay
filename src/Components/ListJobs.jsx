@@ -55,7 +55,21 @@ function ListJobs() {
       newData = filteredJobs
       return filteredJobs;
     }
-    // if((filterCategory['remote/on-site'])){}
+    if((filterCategory['remote/on-site'])){
+      console.log(filterCategory['remote/on-site'])
+      let filteredJobs = newData.filter((job) => {
+        if(filterCategory['remote/on-site'] === 'remote'){
+          console.log('remote')
+          return job.location === 'remote'
+        }else{
+          return job.location !== 'remote'
+        }
+      });
+
+      // dispatch(jobSliceActions.applyFilter(filteredJobs))
+      newData = filteredJobs
+      return filteredJobs;
+    }
     if (filterCategory?.jobRole) {
       let filteredJobs = newData.filter(job => {
         return job.jobRole === filterCategory.jobRole
