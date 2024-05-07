@@ -73,7 +73,7 @@ function JobCard({
         <p className="salary">
           Estimated Salary : {estimatedSalary} {salaryCurrencyCode}
         </p>
-        <h3>About Role</h3>
+        <h3 className="bold">About Role</h3>
         {/* <p>{jobDetailsFromCompany}</p> */}
         <div className="jobDetails">
           <p>{jobDetailsFromCompany.slice(0, maxChars)}</p>

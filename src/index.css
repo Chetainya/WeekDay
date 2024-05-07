@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Sedan+SC&display=swap');
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-weight: normal;
+  font-family: "Hind", sans-serif;
 }
