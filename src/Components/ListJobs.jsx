@@ -26,12 +26,14 @@ function ListJobs() {
       let filteredJobs = newData.filter((job) => {
         return Number(job.minExp) >= Number(filterCategory.minExp);
       });
+      newData = filteredJobs
       return filteredJobs;
     }
     if (filterCategory?.minJdSalary) {
       let filteredJobs = newData.filter((job) => {
         return Number(job.minJdSalary) >= Number(filterCategory.minJdSalary);
       });
+      newData = filteredJobs
       return filteredJobs;
     }
 
@@ -41,6 +43,7 @@ function ListJobs() {
         const apiValue = job.companyName.toLowerCase();
         return apiValue.includes(userSelected);
       });
+      newData = filteredJobs
       return filteredJobs;
     }
     if (filterCategory?.location) {
@@ -49,7 +52,7 @@ function ListJobs() {
       });
 
       // dispatch(jobSliceActions.applyFilter(filteredJobs))
-
+      newData = filteredJobs
       return filteredJobs;
     }
     // if((filterCategory['remote/on-site'])){}
@@ -57,6 +60,7 @@ function ListJobs() {
       let filteredJobs = newData.filter(job => {
         return job.jobRole === filterCategory.jobRole
       })
+      newData = filteredJobs
       return filteredJobs;
     } else {
       return newData;
