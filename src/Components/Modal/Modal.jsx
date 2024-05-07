@@ -37,8 +37,10 @@ function Overlay({jdLink,
           </div>
           <div className="basicInfo">
             <h4>{Company}</h4>
-            <h4>{jobRole}</h4>
-            <h4>{location}</h4>
+            <h4>{jobRole.charAt(0).toUpperCase() + jobRole.slice(1)}</h4>
+            <h4 className="location">
+              {location.charAt(0).toUpperCase() + location.slice(1)}
+              </h4>
           </div>
         </div>
         <p className="salary">
